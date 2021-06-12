@@ -7,6 +7,8 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     [ServiceContract(Name = "persistence.MyNoSqlServer")]
     public interface IMyNoSqlServerNodePersistenceGrpcService
     {
+        [OperationContract(Action = "Ping")]
+        ValueTask PingAsync(PingGrpcRequest request);
 
         [OperationContract(Action = "SaveTableSnapshot")]
         ValueTask SaveTableSnapshotAsync(IAsyncEnumerable<PayloadWrapperGrpcModel> payloads);
@@ -30,10 +32,10 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         IAsyncEnumerable<GetTableGrpcResponse> GetTablesAsync();
 
         [OperationContract(Action = "DownloadTable")]
-        ValueTask<PayloadWrapperGrpcModel> DownloadTableAsync(DownloadTableGrpcRequest request);
+        IAsyncEnumerable<TablePartitionGrpcModel> DownloadTableAsync(DownloadTableGrpcRequest request);
         
         [OperationContract(Action = "DownloadTableCompressed")]
-        ValueTask<PayloadWrapperGrpcModel> DownloadTableCompressedAsync(DownloadTableGrpcRequest request);
+        IAsyncEnumerable<TablePartitionGrpcModel> DownloadTableCompressedAsync(DownloadTableGrpcRequest request);
 
     }
 }

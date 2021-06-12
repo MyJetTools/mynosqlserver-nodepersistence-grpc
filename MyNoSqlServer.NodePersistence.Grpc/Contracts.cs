@@ -3,6 +3,13 @@ using System.Runtime.Serialization;
 namespace MyNoSqlServer.NodePersistence.Grpc
 {
     [DataContract]
+    public class PingGrpcRequest
+    {
+        [DataMember(Order = 1)]
+        public string Location { get; set; }
+    }
+    
+    [DataContract]
     public class PayloadWrapperGrpcModel
     {
         [DataMember(Order = 1)]
@@ -14,9 +21,12 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class SaveSnapshotGrpcModel
     {
         [DataMember(Order = 1)]
-        public string TableName { get; set; }
+        public string Location { get; set; }
         
         [DataMember(Order = 2)]
+        public string TableName { get; set; }
+        
+        [DataMember(Order = 3)]
         public byte[] Content { get; set; }
     }
 
@@ -24,9 +34,12 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class DeleteTablePartitionGrpcRequest
     {
         [DataMember(Order = 1)]
-        public string TableName { get; set; }
+        public string Location { get; set; }
         
         [DataMember(Order = 2)]
+        public string TableName { get; set; }
+        
+        [DataMember(Order = 3)]
         public string[] PartitionKeys { get; set; }
     }
 
@@ -34,6 +47,9 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class SetTableAttributesGrpcRequest
     {
         [DataMember(Order = 1)]
+        public string Location { get; set; }
+        
+        [DataMember(Order = 2)]
         public string TableName { get; set; }
         
         [DataMember(Order = 2)]
@@ -61,7 +77,20 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class DownloadTableGrpcRequest
     {
         [DataMember(Order = 1)]
+        public string Location { get; set; }
+        
+        [DataMember(Order = 2)]
         public string TableName { get; set; }
+    }
+    
+    [DataContract]
+    public class TablePartitionGrpcModel
+    {
+        [DataMember(Order = 1)]
+        public string PartitionKey { get; set; }
+        
+        [DataMember(Order = 2)]
+        public byte[] Content { get; set; }
     }
     
 
