@@ -27,6 +27,9 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public string TableName { get; set; }
         
         [DataMember(Order = 3)]
+        public bool PersistTable { get; set; }
+        
+        [DataMember(Order = 4)]
         public byte[] Content { get; set; }
     }
 
