@@ -17,7 +17,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public string TableName { get; set; }
         
         [DataMember(Order = 2)]
-        public byte[] CompressedContent { get; set; }
+        public byte[] Content { get; set; }
     }
 
     [DataContract]
