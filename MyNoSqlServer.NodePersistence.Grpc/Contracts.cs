@@ -28,6 +28,9 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         
         [DataMember(Order = 3)]
         public string[] PartitionKeys { get; set; }
+        
+        [DataMember(Order = 4)]
+        public SyncGrpcHeader[] Headers { get; set; }
     }
 
     [DataContract]
@@ -44,6 +47,9 @@ namespace MyNoSqlServer.NodePersistence.Grpc
 
         [DataMember(Order = 3)]
         public int MaxPartitionsAmount { get; set; }
+        
+        [DataMember(Order = 4)]
+        public SyncGrpcHeader[] Headers { get; set; }
     }
     
     

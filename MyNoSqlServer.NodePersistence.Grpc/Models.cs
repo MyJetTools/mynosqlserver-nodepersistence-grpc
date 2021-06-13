@@ -18,6 +18,9 @@
         
             [DataMember(Order = 4)]
             public byte[] Content { get; set; }
+            
+            [DataMember(Order = 5)]
+            public SyncGrpcHeader[] Headers { get; set; }
         }
         
         [DataContract]
@@ -37,6 +40,10 @@
         
             [DataMember(Order = 5)]
             public byte[] Content { get; set; }
+            
+            [DataMember(Order = 6)]
+            public SyncGrpcHeader[] Headers { get; set; }
+
         }
         
         [DataContract]
@@ -47,5 +54,9 @@
         
             [DataMember(Order = 2)]
             public byte[] Content { get; set; }
+            
+            [DataMember(Order = 3)]
+            public SyncGrpcHeader[] Headers { get; set; }
+
         }
     }
