@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -38,19 +37,22 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         [DataMember(Order = 1)]
         public string TableName { get; set; }
         
-        [DataMember(Order = 1)]
+        [DataMember(Order = 2)]
         public SyncGrpcHeader[] Headers { get; set; }
         
-        [DataMember(Order = 2)]
-        public byte[] InitTable { get; set; }
-        
         [DataMember(Order = 3)]
-        public byte[] InitPartition { get; set; }
+        public TableAttributeGrpcModel TableAttributes { get; set; }
         
         [DataMember(Order = 4)]
-        public byte[] UpdateRows { get; set; }
-
+        public byte[] InitTableData { get; set; }
+        
         [DataMember(Order = 5)]
+        public byte[] InitPartitionData { get; set; }
+        
+        [DataMember(Order = 6)]
+        public byte[] UpdateRowsData { get; set; }
+
+        [DataMember(Order = 7)]
         public string[] DeleteRows { get; set; }
     }
     

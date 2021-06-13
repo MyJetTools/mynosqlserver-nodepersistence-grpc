@@ -29,7 +29,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         ValueTask SetTableAttributesAsync(SetTableAttributesGrpcRequest request);
 
         [OperationContract(Action = "GetTables")]
-        IAsyncEnumerable<GetTableGrpcResponse> GetTablesAsync();
+        IAsyncEnumerable<TableAttributeGrpcModel> GetTablesAsync();
 
         [OperationContract(Action = "DownloadTable")]
         IAsyncEnumerable<TablePartitionGrpcModel> DownloadTableAsync(DownloadTableGrpcRequest request);
