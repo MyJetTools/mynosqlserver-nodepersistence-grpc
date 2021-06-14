@@ -55,4 +55,5 @@ namespace MyNoSqlServer.NodePersistence.Grpc
 
         [DataMember(Order = 3)] public int MaxPartitionsAmount { get; set; }
     }
+
 }

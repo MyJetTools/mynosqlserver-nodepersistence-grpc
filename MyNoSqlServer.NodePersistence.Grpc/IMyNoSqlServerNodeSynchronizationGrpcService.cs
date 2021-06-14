@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -56,7 +57,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public byte[] UpdateRowsData { get; set; }
 
         [DataMember(Order = 7)]
-        public string[] DeleteRows { get; set; }
+        public Dictionary<string, string[]> DeleteRows { get; set; }
     }
     
     
