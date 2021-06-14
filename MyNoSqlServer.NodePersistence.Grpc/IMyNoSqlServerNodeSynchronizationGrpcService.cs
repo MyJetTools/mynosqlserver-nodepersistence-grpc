@@ -16,6 +16,9 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         
         [DataMember(Order = 3)]
         public long RequestId { get; set; }
+        
+        [DataMember(Order = 4)]
+        public bool Compress { get; set; }
     }
     
     
