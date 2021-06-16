@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 
@@ -5,9 +6,9 @@ using System.Runtime.Serialization;
 namespace MyNoSqlServer.NodePersistence.Grpc
 {
     [DataContract]
-    public class SaveTableSnapshotGrpcModel
+    public class WriteTableSnapshotGrpcModel
     {
-        [DataMember(Order = 1)] public string Location { get; set; }
+        [DataMember(Order = 1)] public List<string> Locations { get; set; }
 
         [DataMember(Order = 2)] public string TableName { get; set; }
 
@@ -19,9 +20,9 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     }
 
     [DataContract]
-    public class SavePartitionSnapshotGrpcModel
+    public class WritePartitionSnapshotGrpcModel
     {
-        [DataMember(Order = 1)] public string Location { get; set; }
+        [DataMember(Order = 1)] public List<string> Locations { get; set; }
 
         [DataMember(Order = 2)] public string TableName { get; set; }
 
@@ -36,18 +37,23 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     }
 
     [DataContract]
-    public class TablePartitionGrpcModel
+    public class ReadTablePartitionGrpcModel
     {
-        [DataMember(Order = 1)] public string PartitionKey { get; set; }
+        
+        
+        [DataMember(Order = 2)] 
+        public string PartitionKey { get; set; }
 
-        [DataMember(Order = 2)] public byte[] Content { get; set; }
+        [DataMember(Order = 3)] 
+        public byte[] Content { get; set; }
 
-        [DataMember(Order = 3)] public SyncGrpcHeader[] Headers { get; set; }
+        [DataMember(Order = 4)] 
+        public SyncGrpcHeader[] Headers { get; set; }
 
     }
 
     [DataContract]
-    public class TableAttributeGrpcModel
+    public class ReadTableAttributeGrpcModel
     {
         [DataMember(Order = 1)] public string TableName { get; set; }
 

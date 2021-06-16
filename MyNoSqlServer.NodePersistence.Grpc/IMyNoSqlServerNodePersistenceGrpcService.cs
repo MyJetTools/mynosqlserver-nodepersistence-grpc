@@ -29,13 +29,13 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         ValueTask SetTableAttributesAsync(SetTableAttributesGrpcRequest request);
 
         [OperationContract(Action = "GetTables")]
-        IAsyncEnumerable<TableAttributeGrpcModel> GetTablesAsync();
+        IAsyncEnumerable<ReadTableAttributeGrpcModel> GetTablesAsync();
 
         [OperationContract(Action = "DownloadTable")]
-        IAsyncEnumerable<TablePartitionGrpcModel> DownloadTableAsync(DownloadTableGrpcRequest request);
+        IAsyncEnumerable<ReadTablePartitionGrpcModel> DownloadTableAsync(DownloadTableGrpcRequest request);
         
         [OperationContract(Action = "DownloadTableCompressed")]
-        IAsyncEnumerable<TablePartitionGrpcModel> DownloadTableCompressedAsync(DownloadTableGrpcRequest request);
+        IAsyncEnumerable<ReadTablePartitionGrpcModel> DownloadTableCompressedAsync(DownloadTableGrpcRequest request);
 
     }
 }

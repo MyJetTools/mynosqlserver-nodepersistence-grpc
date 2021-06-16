@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MyNoSqlServer.NodePersistence.Grpc
@@ -6,14 +7,14 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class PingGrpcRequest
     {
         [DataMember(Order = 1)]
-        public string Location { get; set; }
+        public string Locations { get; set; }
     }
 
     [DataContract]
     public class PingGrpcResponse
     {
         [DataMember(Order = 1)]
-        public string Location { get; set; }
+        public string Locations { get; set; }
     }
     
     [DataContract]
@@ -28,7 +29,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class DeleteTablePartitionGrpcRequest
     {
         [DataMember(Order = 1)]
-        public string Location { get; set; }
+        public List<string> Locations { get; set; }
         
         [DataMember(Order = 2)]
         public string TableName { get; set; }
@@ -44,7 +45,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class SetTableAttributesGrpcRequest
     {
         [DataMember(Order = 1)]
-        public string Location { get; set; }
+        public List<string> Locations { get; set; }
         
         [DataMember(Order = 2)]
         public string TableName { get; set; }
@@ -64,9 +65,6 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class DownloadTableGrpcRequest
     {
         [DataMember(Order = 1)]
-        public string Location { get; set; }
-        
-        [DataMember(Order = 2)]
         public string TableName { get; set; }
     }
     
