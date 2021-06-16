@@ -8,7 +8,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public interface IMyNoSqlServerNodePersistenceGrpcService
     {
         [OperationContract(Action = "Ping")]
-        ValueTask PingAsync(PingGrpcRequest request);
+        ValueTask<PingGrpcResponse> PingAsync(PingGrpcRequest request);
 
         [OperationContract(Action = "SaveTableSnapshot")]
         ValueTask SaveTableSnapshotAsync(IAsyncEnumerable<PayloadWrapperGrpcModel> payloads);

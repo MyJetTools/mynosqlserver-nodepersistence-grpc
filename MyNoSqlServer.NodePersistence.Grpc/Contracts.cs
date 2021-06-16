@@ -8,6 +8,13 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         [DataMember(Order = 1)]
         public string Location { get; set; }
     }
+
+    [DataContract]
+    public class PingGrpcResponse
+    {
+        [DataMember(Order = 1)]
+        public string Location { get; set; }
+    }
     
     [DataContract]
     public class PayloadWrapperGrpcModel
