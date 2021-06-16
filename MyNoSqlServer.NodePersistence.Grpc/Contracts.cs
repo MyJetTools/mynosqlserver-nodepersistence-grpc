@@ -7,14 +7,14 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     public class PingGrpcRequest
     {
         [DataMember(Order = 1)]
-        public string Locations { get; set; }
+        public string Location { get; set; }
     }
 
     [DataContract]
     public class PingGrpcResponse
     {
         [DataMember(Order = 1)]
-        public string Locations { get; set; }
+        public string Location { get; set; }
     }
     
     [DataContract]
