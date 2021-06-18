@@ -23,6 +23,33 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         [DataMember(Order = 1)]
         public byte[] Payload { get; set; }
     }
+    
+    [DataContract]
+    public class DeleteRowsGrpcRequest
+    {
+        [DataMember(Order = 1)]
+        public List<string> Locations { get; set; }
+        
+        [DataMember(Order = 2)]
+        public string TableName { get; set; }
+        
+        [DataMember(Order = 3)]
+        public RowsToDeleteByPartitionGrpc[] RowsToDelete { get; set; }
+        
+        [DataMember(Order = 4)]
+        public SyncGrpcHeader[] Headers { get; set; }
+    }
+
+    
+    [DataContract]
+    public class RowsToDeleteByPartitionGrpc
+    {
+        [DataMember(Order = 1)]
+        public string PartitionKey { get; set; }
+        
+        [DataMember(Order = 2)]
+        public string[] RowKeys { get; set; }
+    }
 
 
     [DataContract]

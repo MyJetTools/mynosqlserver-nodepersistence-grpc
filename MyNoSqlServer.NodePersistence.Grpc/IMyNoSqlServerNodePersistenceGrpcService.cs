@@ -22,6 +22,17 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         [OperationContract(Action = "SavePartitionCompressedSnapshot")]
         ValueTask SavePartitionCompressedSnapshotAsync(IAsyncEnumerable<PayloadWrapperGrpcModel> payloads);
         
+        [OperationContract(Action = "SaveRowsSnapshot")]
+        ValueTask SaveRowsSnapshotAsync(IAsyncEnumerable<PayloadWrapperGrpcModel> payloads);
+        
+        [OperationContract(Action = "SaveRowsCompressedSnapshot")]
+        ValueTask SaveRowsCompressedSnapshotAsync(IAsyncEnumerable<PayloadWrapperGrpcModel> payloads);
+        
+        
+        [OperationContract(Action = "DeleteRows")]
+        ValueTask DeleteRowsAsync(IAsyncEnumerable<PayloadWrapperGrpcModel> payloads);
+
+        
         [OperationContract(Action = "DeleteTablePartitions")]
         ValueTask DeleteTablePartitionsAsync(DeleteTablePartitionGrpcRequest request);
 
