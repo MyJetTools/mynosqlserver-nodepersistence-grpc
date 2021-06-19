@@ -45,7 +45,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public SyncGrpcHeader[] Headers { get; set; }
         
         [DataMember(Order = 3)]
-        public ReadTableAttributeGrpcModel TableAttributes { get; set; }
+        public TableAttributesGrpcData TableAttributes { get; set; }
         
         [DataMember(Order = 4)]
         public byte[] InitTableData { get; set; }
