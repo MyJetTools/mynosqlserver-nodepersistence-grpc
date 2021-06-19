@@ -31,15 +31,16 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public List<string> Locations { get; set; }
         
         [DataMember(Order = 2)]
-        public string TableName { get; set; }
+        public SyncGrpcHeader[] Headers { get; set; }
         
         [DataMember(Order = 3)]
-        public RowsToDeleteByPartitionGrpc[] RowsToDelete { get; set; }
+        public string TableName { get; set; }
         
         [DataMember(Order = 4)]
-        public SyncGrpcHeader[] Headers { get; set; }
-    }
+        public RowsToDeleteByPartitionGrpc[] RowsToDelete { get; set; }
+        
 
+    }
     
     [DataContract]
     public class RowsToDeleteByPartitionGrpc
