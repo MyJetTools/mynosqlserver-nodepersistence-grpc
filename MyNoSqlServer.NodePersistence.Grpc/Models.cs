@@ -18,7 +18,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public TableAttributesGrpcData Attributes { get; set; }
 
         [DataMember(Order = 4)] 
-        public byte[] TableSnapshot { get; set; }
+        public  PartitionDataGrpcModel[] TablePartitions { get; set; }
 
         [DataMember(Order = 5)] 
         public SyncGrpcHeader[] Headers { get; set; }
@@ -37,7 +37,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public SyncGrpcHeader[] Headers { get; set; }
         
         [DataMember(Order = 4)] 
-        public byte[] PartitionsToBeInitialized { get; set; }
+        public PartitionDataGrpcModel[] PartitionsToBeInitialized { get; set; }
 
 
     }
@@ -52,7 +52,7 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public string TableName { get; set; }
 
         [DataMember(Order = 3)] 
-        public byte[] RowsContent { get; set; }
+        public PartitionDataGrpcModel[] Rows { get; set; }
 
         [DataMember(Order = 4)] 
         public SyncGrpcHeader[] Headers { get; set; }
