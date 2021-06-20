@@ -78,13 +78,13 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         [DataMember(Order = 2)]
         public string TableName { get; set; }
         
-        [DataMember(Order = 2)]
+        [DataMember(Order = 3)]
         public bool Persist { get; set; }
 
-        [DataMember(Order = 3)]
+        [DataMember(Order = 4)]
         public int MaxPartitionsAmount { get; set; }
         
-        [DataMember(Order = 4)]
+        [DataMember(Order = 5)]
         public SyncGrpcHeader[] Headers { get; set; }
     }
     
