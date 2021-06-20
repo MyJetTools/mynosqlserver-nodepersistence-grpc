@@ -45,18 +45,21 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public SyncGrpcHeader[] Headers { get; set; }
         
         [DataMember(Order = 3)]
-        public TableAttributesGrpcData TableAttributes { get; set; }
+        public List<string> Locations { get; set; }
         
         [DataMember(Order = 4)]
-        public byte[] InitTableData { get; set; }
+        public TableAttributesGrpcData TableAttributes { get; set; }
         
         [DataMember(Order = 5)]
-        public byte[] InitPartitionData { get; set; }
+        public byte[] InitTableData { get; set; }
         
         [DataMember(Order = 6)]
+        public byte[] InitPartitionData { get; set; }
+        
+        [DataMember(Order = 7)]
         public byte[] UpdateRowsData { get; set; }
 
-        [DataMember(Order = 7)]
+        [DataMember(Order = 8)]
         public Dictionary<string, string[]> DeleteRows { get; set; }
     }
     
