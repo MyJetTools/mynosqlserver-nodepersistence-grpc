@@ -6,68 +6,18 @@ using System.Threading.Tasks;
 namespace MyNoSqlServer.NodePersistence.Grpc
 {
 
-    [DataContract]
-    public class SyncGrpcRequest
-    {
-        [DataMember(Order = 1)]
-        public string Location { get; set; }
-        
-        [DataMember(Order = 2)]
-        public string SessionId { get; set; }
-        
-        [DataMember(Order = 3)]
-        public long RequestId { get; set; }
-        
-        [DataMember(Order = 4)]
-        public bool Compress { get; set; }
-    }
-    
-    
-    [DataContract]
-    public class SyncGrpcHeader{
-        
-        [DataMember(Order = 1)]
-        public string Key { get; set; }
-        
-        [DataMember(Order = 2)]
-        public string Value { get; set; }
-    }
-    
 
-    [DataContract]
-    public class SyncGrpcResponse
-    {
-        
-        [DataMember(Order = 1)]
-        public string TableName { get; set; }
-        
-        [DataMember(Order = 2)]
-        public SyncGrpcHeader[] Headers { get; set; }
-        
-        [DataMember(Order = 3)]
-        public List<string> Locations { get; set; }
-        
-        [DataMember(Order = 4)]
-        public TableAttributesGrpcData TableAttributes { get; set; }
-        
-        [DataMember(Order = 5)]
-        public byte[] InitTableData { get; set; }
-        
-        [DataMember(Order = 6)]
-        public byte[] InitPartitionData { get; set; }
-        
-        [DataMember(Order = 7)]
-        public byte[] UpdateRowsData { get; set; }
-
-        [DataMember(Order = 8)]
-        public Dictionary<string, string[]> DeleteRows { get; set; }
-    }
+    
+    
     
     
     [ServiceContract(Name = "synchronization.MyNoSqlServer")]
     public interface IMyNoSqlServerNodeSynchronizationGrpcService
     {
         [OperationContract(Action = "Sync")]
-        public ValueTask<SyncGrpcResponse> SyncAsync(SyncGrpcRequest request);
+        public ValueTask<SyncTransactionGrpcModel> SyncAsync(SyncGrpcRequest request);
+        
+        [OperationContract(Action = "SyncCompressed")]
+        public ValueTask<PayloadWrapperGrpcModel> SyncCompressedAsync(SyncGrpcRequest request);
     }
 }
