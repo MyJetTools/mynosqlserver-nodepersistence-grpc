@@ -42,18 +42,21 @@ namespace MyNoSqlServer.NodePersistence.Grpc
         public List<string> Locations { get; set; }
         
         [DataMember(Order = 4)]
-        public TableAttributesGrpcData TableAttributes { get; set; }
+        public bool InitPacket { get; set; }
         
         [DataMember(Order = 5)]
-        public List<PartitionDataGrpcModel> InitTableData { get; set; }
+        public TableAttributesGrpcData TableAttributes { get; set; }
         
         [DataMember(Order = 6)]
-        public List<PartitionDataGrpcModel> InitPartitionsData { get; set; }
+        public List<PartitionDataGrpcModel> InitTableData { get; set; }
         
         [DataMember(Order = 7)]
+        public List<PartitionDataGrpcModel> InitPartitionsData { get; set; }
+        
+        [DataMember(Order = 8)]
         public List<PartitionDataGrpcModel> UpdateRowsData { get; set; }
 
-        [DataMember(Order = 8)]
+        [DataMember(Order = 9)]
         public Dictionary<string, string[]> DeleteRows { get; set; }
     }
 }
