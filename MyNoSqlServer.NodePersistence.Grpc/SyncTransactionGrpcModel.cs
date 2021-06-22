@@ -31,32 +31,35 @@ namespace MyNoSqlServer.NodePersistence.Grpc
     [DataContract]
     public class SyncTransactionGrpcModel
     {
-        
+
         [DataMember(Order = 1)]
-        public string TableName { get; set; }
+        public string RemoteLocation { get; set; }
         
         [DataMember(Order = 2)]
-        public SyncGrpcHeader[] Headers { get; set; }
+        public string TableName { get; set; }
         
         [DataMember(Order = 3)]
-        public List<string> Locations { get; set; }
+        public SyncGrpcHeader[] Headers { get; set; }
         
         [DataMember(Order = 4)]
-        public bool InitPacket { get; set; }
+        public List<string> Locations { get; set; }
         
         [DataMember(Order = 5)]
-        public TableAttributesGrpcData TableAttributes { get; set; }
+        public bool InitPacket { get; set; }
         
         [DataMember(Order = 6)]
-        public List<PartitionDataGrpcModel> InitTableData { get; set; }
+        public TableAttributesGrpcData TableAttributes { get; set; }
         
         [DataMember(Order = 7)]
-        public List<PartitionDataGrpcModel> InitPartitionsData { get; set; }
+        public List<PartitionDataGrpcModel> InitTableData { get; set; }
         
         [DataMember(Order = 8)]
+        public List<PartitionDataGrpcModel> InitPartitionsData { get; set; }
+        
+        [DataMember(Order = 9)]
         public List<PartitionDataGrpcModel> UpdateRowsData { get; set; }
 
-        [DataMember(Order = 9)]
+        [DataMember(Order = 10)]
         public Dictionary<string, string[]> DeleteRows { get; set; }
     }
 }
